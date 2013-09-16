@@ -1,3 +1,3 @@
-# Proyecto: 
+## Proyecto: 
 
-#### Plataforma de interaccion para eventos en tiempos real
+### Plataforma de interaccion para eventos en tiempos real - Plataforma Mobile.
