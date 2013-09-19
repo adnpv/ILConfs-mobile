@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+ 
 $.getJSON('http://localhost:8000/json/jsonev/?callback=?', function(json) {
   //dato= jquery.parseJSON(data);
     $.each(json, function(key,val) {
