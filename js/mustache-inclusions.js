@@ -1,37 +1,77 @@
+
+
+function preguntas(){
+    var give = $('#style-include1').html();
+    $.ajax({
+        data:
+            {
+            "que": 1,
+            //"callback":"result2",
+            },
+        //datatype: 'json',
+        type: 'GET',
+        url: 'http://localhost:8000/interactiv/jsonquest',
+        success: function(result)
+            {
+
+            if(result){
+            var b = '<div>hello</div>';
+            var $a = $("#templates22");
+              $("#templates22").load("templates/t-preg-resolv.html",function(){
+                  $.each(result, function(key,val) {
+                      //alert(key);
+                      if(key ==0){
+                        //alert('hello');
+                        var template = $('#template32').html();
+                            //var template = "<h1>{{name}}</h1> ";
+                        var titulo = Mustache.to_html(template, val); //other
+                        //alert(template);
+                        $('#template32').html(titulo);
+                      }else{
+                      var template = $('#inplaces').html();
+                      var html = Mustache.to_html(template, val); //other
+                      $('#lege').append(html);  
+                      }
+                      
+                  });
+
+                  b = $('#template32').html();
+                  $('.quests').html(b);
+
+                  $('#style-include').html(give);
+                });
+            }
+            
+            
+        }
+    });
+ 
+}
+
 $(document).ready(function(){
  
-$.getJSON('http://localhost:8000/json/jsonev/?callback=?', function(json) {
-  //dato= jquery.parseJSON(data);
+$.getJSON('http://adnp.pythonanywhere.com/json/jsonev/?callback=?', function(json) {
     $.each(json, function(key,val) {
-      // var fullHtml;
 
       $("#templates").load("templates/template-event.html",function(){
-          // $('#template3').each(function() {
-          //     fullHtml += $(this).html();
-          // });
           var template = $('#template3').html();
-          //var template = "<h1>{{name}}</h1> ";
           var html = Mustache.to_html(template, val);
           $('.eventus').append(html);
       });
     });
 
   });
+      $(".goin").click(function(event)
+        {
+          event.preventDefault();
+          preguntas();
+          return false;
+        });
 
-        // var view = {
-        //   titulo: "Titulillo",
-        //   name : "Joe",
-        //   occupation : "Web Developer",
-        //   intereses: "Hackear pages"
-        // };
- 
-        // $("#templates").load("templates/template.html",function(){
-        //   var template = document.getElementById('template1').innerHTML;
-        //     var template2 = document.getElementById('template2').innerHTML;
-        //     var template3 = document.getElementById('template3').innerHTML;
-        //   var output = Mustache.render(template, view);
-        //   $("#person").html(output);
-        // });
-
+      $("#goin").click(function(event)
+        {
+          preguntas();
+          return false;
+        });
 
 });
