@@ -20,7 +20,7 @@ $('#pregu').click(function() {
   			$.ajax({
 	            type: "GET",
 	            dataType: "json",
-	            url: "http://localhost:8000/interactiv/question",
+	            url: "http://shielded-peak-5807.herokuapp.com/interactiv/question",//"http://localhost:8000/interactiv/question",
 	            data: { 'titulo': ptitu,
 	        			'detalle': pdetall,
 	        			'idus': iduser,
@@ -97,7 +97,7 @@ $('article').on("click","#resolv",function(e){
   			$.ajax({
 	            type: "GET",
 	            dataType: "json",
-	            url: "http://localhost:8000/interactiv/resolv",
+	            url: "http://shielded-peak-5807.herokuapp.com/interactiv/resolv",//"http://localhost:8000/interactiv/resolv",
 	            data: { 'send_resul': rad_val,
 	        			'quest':quest},
 	            success: function(response){

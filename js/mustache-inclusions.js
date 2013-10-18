@@ -10,7 +10,7 @@ function preguntas(){
             },
         //datatype: 'json',
         type: 'GET',
-        url: 'http://localhost:8000/interactiv/jsonquest',
+        url: "http://shielded-peak-5807.herokuapp.com/interactiv/jsonquest",//'http://localhost:8000/interactiv/jsonquest',
         success: function(result)
             {
 
