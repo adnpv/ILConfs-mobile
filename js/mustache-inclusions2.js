@@ -6,12 +6,9 @@ function preguntas(){
         data:
             {
             "que": 2,
-            //"callback":"result2",
             },
-        //datatype: 'json',
         type: 'GET',
         url:"http://pietreal.herokuapp.com/interactiv/jsonquest", 
-          //"http://shielded-peak-5807.herokuapp.com/interactiv/jsonquest",//'http://localhost:8000/interactiv/jsonquest',
         success: function(result)
             {
 
@@ -53,17 +50,21 @@ $(document).ready(function(){
 
 var url="http://pietreal.herokuapp.com/json/jsonev/?callback=?"
 var old_url ="http://adnp.pythonanywhere.com/json/jsonev/?callback=?"
-$.getJSON(url, function(json) {
-    $.each(json, function(key,val) {
 
-      $("#templates").load("templates/template-event.html",function(){
-          var template = $('#template3').html();
-          var html = Mustache.to_html(template, val);
-          $('.eventus').append(html);
+function loadBasicData(){
+  $.getJSON(url, function(json) {
+      $.each(json, function(key,val) {
+
+        $("#templates").load("templates/template-event.html",function(){
+            var template = $('#template3').html();
+            var html = Mustache.to_html(template, val);
+            $('.eventus').append(html);
+        });
       });
-    });
 
   });
+
+}
       $(".goin").click(function(event)
         {
           event.preventDefault();
