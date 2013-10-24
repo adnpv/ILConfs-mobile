@@ -1,4 +1,17 @@
 
+function pag_inicio(){
+  $.getJSON(url, function(json) {
+    $.each(json, function(key,val) {
+
+      $("#templates").load("templates/template-event.html",function(){
+          var template = $('#template3').html();
+          var html = Mustache.to_html(template, val);
+          $('.eventus').append(html);
+      });
+    });
+
+  });
+}
 
 function preguntas(){
     var give = $('#style-include1').html();
@@ -55,19 +68,6 @@ var url="http://pietreal.herokuapp.com/json/jsonev/?callback=?"
 var old_url ="http://adnp.pythonanywhere.com/json/jsonev/?callback=?"
 
 
-
-
-$.getJSON(url, function(json) {
-    $.each(json, function(key,val) {
-
-      $("#templates").load("templates/template-event.html",function(){
-          var template = $('#template3').html();
-          var html = Mustache.to_html(template, val);
-          $('.eventus').append(html);
-      });
-    });
-
-  });
       $(".goin").click(function(event)
         {
           event.preventDefault();
